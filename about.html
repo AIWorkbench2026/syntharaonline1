@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Gateway Visas — Our Story & Mission</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a1628;
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            background: rgba(10,22,40,0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .nav-logo span {
+            background: linear-gradient(90deg, #00d4aa, #00a8e8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: #a0c4e8;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #00d4aa;
+        }
+        .nav-links .promo-link {
+            background: linear-gradient(90deg, #ff6b35, #f7931e);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 700;
+        }
+        .nav-links .promo-link:hover {
+            color: #fff;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 50%, #0d2137 100%);
+            padding: 80px 20px 60px;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+        .page-header h1 span {
+            background: linear-gradient(90deg, #00d4aa, #00a8e8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .page-header p {
+            color: #a0c4e8;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            padding: 60px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .content-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: #00d4aa;
+        }
+        .content-section p {
+            color: #a0c4e8;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .values {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        .value-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 35px 25px;
+            text-align: center;
+        }
+        .value-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        .value-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .value-card p {
+            color: #8fb8d8;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .team-section {
+            padding: 60px 20px;
+            background: rgba(0,0,0,0.15);
+            text-align: center;
+        }
+        .team-section h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+        .team-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .team-member {
+            text-align: center;
+        }
+        .team-member .avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #00d4aa, #00a8e8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 15px;
+        }
+        .team-member h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        .team-member p {
+            color: #7a9ab8;
+            font-size: 0.85rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #5a7a9a;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        footer .contact a {
+            color: #00d4aa;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">🛂 <span>Gateway</span> Visas</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="worldcup-giveaway.html" class="promo-link">🎫 World Cup Giveaway</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>About <span>Gateway Visas</span></h1>
+            <p>We built this company because visa applications shouldn't require a PhD in bureaucracy.</p>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2>Our Story</h2>
+        <p>Gateway Visas was founded on a simple observation: millions of people every year miss out on travel, work, and study opportunities because the visa process is confusing, time-consuming, and unnecessarily stressful.</p>
+        <p>We set out to change that. Our mission is to make visa processing as easy as booking a flight. No queues. No confusing forms. No waiting in government offices for hours.</p>
+        <p>Today, Gateway Visas serves clients from over 190 countries, handling every visa type imaginable — from tourist visas for dream holidays to work permits for global careers. Everything happens online. You apply from your phone. We handle the rest.</p>
+
+        <h2 style="margin-top: 50px;">Why We Exist</h2>
+        <p>Traditional visa services are slow, expensive, and opaque. You fill out forms you don't understand, wait weeks for responses, and pay fees without knowing what you're actually getting.</p>
+        <p>We cut through all of that. Our system is designed to be transparent, fast, and affordable. You know exactly what documents you need, exactly what it costs, and exactly when you'll hear back.</p>
+        <p>Whether you're a student heading to university, a professional attending a conference, a family visiting relatives, or a football fan chasing the World Cup — we make sure paperwork never stands between you and your destination.</p>
+    </div>
+
+    <div class="values">
+        <div class="value-card">
+            <div class="icon">⚡</div>
+            <h3>Speed</h3>
+            <p>Average 24-hour response time. No more waiting weeks for updates.</p>
+        </div>
+        <div class="value-card">
+            <div class="icon">🔒</div>
+            <h3>Security</h3>
+            <p>Your documents are encrypted and handled with strict confidentiality.</p>
+        </div>
+        <div class="value-card">
+            <div class="icon">🌍</div>
+            <h3>Global Reach</h3>
+            <p>Every country. Every visa type. One point of contact.</p>
+        </div>
+        <div class="value-card">
+            <div class="icon">💬</div>
+            <h3>Support</h3>
+            <p>Real humans, not bots. We're with you from application to approval.</p>
+        </div>
+    </div>
+
+    <div class="team-section">
+        <div class="container">
+            <h2>Meet the Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="avatar">👤</div>
+                    <h4>Alain M.</h4>
+                    <p>Founder & Director</p>
+                </div>
+                <div class="team-member">
+                    <div class="avatar">👤</div>
+                    <h4>Visa Specialists</h4>
+                    <p>Global Processing Team</p>
+                </div>
+                <div class="team-member">
+                    <div class="avatar">👤</div>
+                    <h4>Support Team</h4>
+                    <p>Client Relations</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Gateway Visas. All rights reserved.</p>
+            <div class="contact">
+                Contact: <a href="mailto:gatewayvisas@atomicmail.io">gatewayvisas@atomicmail.io</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

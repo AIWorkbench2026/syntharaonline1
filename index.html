@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gateway Visas — Global Visa Processing Made Simple</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a1628;
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(10,22,40,0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .nav-logo span {
+            background: linear-gradient(90deg, #00d4aa, #00a8e8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: #a0c4e8;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #00d4aa;
+        }
+        .nav-links .promo-link {
+            background: linear-gradient(90deg, #ff6b35, #f7931e);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 700;
+        }
+        .nav-links .promo-link:hover {
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 50%, #0d2137 100%);
+            padding: 100px 20px 80px;
+            text-align: center;
+            position: relative;
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        .hero h1 span {
+            background: linear-gradient(90deg, #00d4aa, #00a8e8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #a0c4e8;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            padding: 16px 35px;
+            background: linear-gradient(90deg, #00d4aa, #00a8e8);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,212,170,0.3);
+        }
+        .btn-secondary {
+            padding: 16px 35px;
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.2);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        .btn-secondary:hover {
+            border-color: #00d4aa;
+            color: #00d4aa;
+        }
+
+        /* Stats */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 60px;
+            flex-wrap: wrap;
+        }
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: #00d4aa;
+            font-weight: 800;
+        }
+        .stat-item p {
+            color: #7a9ab8;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        /* Promo Banner */
+        .promo-banner {
+            background: linear-gradient(90deg, rgba(255,107,53,0.15), rgba(247,147,30,0.15));
+            border: 2px solid rgba(255,107,53,0.3);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 900px;
+            margin: 60px auto;
+            text-align: center;
+        }
+        .promo-banner h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        .promo-banner h2 span {
+            color: #ff6b35;
+        }
+        .promo-banner p {
+            color: #a0c4e8;
+            margin-bottom: 25px;
+        }
+
+        /* Services Preview */
+        .services-preview {
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .services-preview h2 {
+            font-size: 2rem;
+            margin-bottom: 50px;
+        }
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .service-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 40px 30px;
+            transition: all 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0,212,170,0.3);
+        }
+        .service-card .icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .service-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+        .service-card p {
+            color: #8fb8d8;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Process */
+        .process {
+            padding: 80px 20px;
+            background: rgba(0,0,0,0.15);
+            text-align: center;
+        }
+        .process h2 {
+            font-size: 2rem;
+            margin-bottom: 50px;
+        }
+        .process-steps {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .process-step {
+            flex: 1;
+            min-width: 200px;
+            max-width: 250px;
+        }
+        .process-step .num {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #00d4aa, #00a8e8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin: 0 auto 20px;
+        }
+        .process-step h3 {
+            margin-bottom: 10px;
+        }
+        .process-step p {
+            color: #8fb8d8;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #5a7a9a;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        footer .contact {
+            margin-top: 15px;
+            color: #7a9ab8;
+        }
+        footer .contact a {
+            color: #00d4aa;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero { padding: 60px 20px; }
+            .stats { gap: 30px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">🛂 <span>Gateway</span> Visas</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="worldcup-giveaway.html" class="promo-link">🎫 World Cup Giveaway</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <div class="container">
+            <h1>Visa Processing <span>Without the Headache</span></h1>
+            <p>Gateway Visas handles every visa type, for every country, entirely online. No queues. No offices. No waiting.</p>
+            <div class="hero-btns">
+                <a href="services.html" class="btn-primary">Explore Services</a>
+                <a href="worldcup-giveaway.html" class="btn-secondary">🎫 Win World Cup Tickets</a>
+            </div>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <h3>190+</h3>
+                    <p>Countries Covered</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>Online Process</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24h</h3>
+                    <p>Average Response</p>
+                </div>
+                <div class="stat-item">
+                    <h3>50K+</h3>
+                    <p>Visas Processed</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="promo-banner container">
+        <h2>🎫 <span>World Cup 2026</span> Ticket Giveaway</h2>
+        <p>Win 2 tickets to the World Cup + get 25% off your visa processing with code WCGATE26. Every entrant wins a discount.</p>
+        <a href="worldcup-giveaway.html" class="btn-primary">Enter Giveaway</a>
+    </div>
+
+    <div class="services-preview">
+        <div class="container">
+            <h2>What We Handle</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="icon">🛂</div>
+                    <h3>Tourist Visas</h3>
+                    <p>Short-term travel visas for tourism, holidays, and family visits to any country.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon">💼</div>
+                    <h3>Business Visas</h3>
+                    <p>Corporate travel, conferences, meetings, and trade events worldwide.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon">🎓</div>
+                    <h3>Student Visas</h3>
+                    <p>Study abroad permits, exchange programs, and educational travel.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon">🏠</div>
+                    <h3>Work Visas</h3>
+                    <p>Employment permits, skilled migration, and long-term work authorization.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon">✈️</div>
+                    <h3>Transit Visas</h3>
+                    <p>Airport transit, layover permits, and short-stop travel documentation.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon">👨‍👩‍👧</div>
+                    <h3>Family Visas</h3>
+                    <p>Spousal visas, dependent permits, and family reunification applications.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="process">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="num">1</div>
+                    <h3>Apply Online</h3>
+                    <p>Fill our simple form. Tell us where you're going and what visa you need.</p>
+                </div>
+                <div class="process-step">
+                    <div class="num">2</div>
+                    <h3>Send Documents</h3>
+                    <p>Email us your passport, photos, and supporting documents securely.</p>
+                </div>
+                <div class="process-step">
+                    <div class="num">3</div>
+                    <h3>We Handle It</h3>
+                    <p>Our experts prepare, review, and submit your application for you.</p>
+                </div>
+                <div class="process-step">
+                    <div class="num">4</div>
+                    <h3>Get Your Visa</h3>
+                    <p>Receive your approved visa via email or courier. Travel ready.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Gateway Visas. Global Visa Processing Services.</p>
+            <div class="contact">
+                Contact: <a href="mailto:gatewayvisas@atomicmail.io">gatewayvisas@atomicmail.io</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

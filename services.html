@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services — Gateway Visas</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a1628;
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            background: rgba(10,22,40,0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .nav-logo span {
+            background: linear-gradient(90deg, #00d4aa, #00a8e8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: #a0c4e8;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #00d4aa;
+        }
+        .nav-links .promo-link {
+            background: linear-gradient(90deg, #ff6b35, #f7931e);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 700;
+        }
+        .nav-links .promo-link:hover {
+            color: #fff;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 50%, #0d2137 100%);
+            padding: 80px 20px 60px;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+        .page-header h1 span {
+            background: linear-gradient(90deg, #00d4aa, #00a8e8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .page-header p {
+            color: #a0c4e8;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .pricing-note {
+            background: rgba(0,212,170,0.08);
+            border: 1px solid rgba(0,212,170,0.2);
+            border-radius: 16px;
+            padding: 25px;
+            max-width: 900px;
+            margin: 40px auto;
+            text-align: center;
+        }
+        .pricing-note h3 {
+            color: #00d4aa;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .pricing-note p {
+            color: #8fb8d8;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .service-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0,212,170,0.3);
+        }
+        .service-card .icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #00d4aa;
+        }
+        .service-card p {
+            color: #8fb8d8;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        .service-card .price-box {
+            background: rgba(0,0,0,0.2);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+        .service-card .service-fee {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .service-card .govt-fee {
+            font-size: 0.9rem;
+            color: #7a9ab8;
+            margin-bottom: 5px;
+        }
+        .service-card .total-note {
+            font-size: 0.85rem;
+            color: #5a7a9a;
+            font-style: italic;
+        }
+
+        .countries-section {
+            padding: 60px 20px;
+            background: rgba(0,0,0,0.15);
+            text-align: center;
+        }
+        .countries-section h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+        .countries-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .country-tag {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 50px;
+            padding: 12px 25px;
+            font-size: 0.95rem;
+            color: #a0c4e8;
+        }
+
+        .cta-section {
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .cta-box {
+            background: linear-gradient(135deg, rgba(0,212,170,0.1), rgba(0,168,232,0.1));
+            border: 2px solid rgba(0,212,170,0.3);
+            border-radius: 24px;
+            padding: 50px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .cta-box h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        .cta-box p {
+            color: #a0c4e8;
+            margin-bottom: 30px;
+        }
+        .btn-primary {
+            padding: 16px 35px;
+            background: linear-gradient(90deg, #00d4aa, #00a8e8);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,212,170,0.3);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #5a7a9a;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        footer .contact a {
+            color: #00d4aa;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">🛂 <span>Gateway</span> Visas</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="worldcup-giveaway.html" class="promo-link">🎫 World Cup Giveaway</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Our <span>Services</span></h1>
+            <p>Every visa type. Every country. Transparent pricing, no hidden fees.</p>
+        </div>
+    </div>
+
+    <div class="pricing-note container">
+        <h3>📋 How Our Pricing Works</h3>
+        <p>Our fees are separate from government/embassy fees. You pay us for expert handling, document preparation, and application management. Government fees are paid directly to the embassy and vary by destination country. We provide exact totals during your free consultation.</p>
+    </div>
+
+    <div class="services-grid">
+        <div class="service-card">
+            <div class="icon">🛂</div>
+            <h3>Tourist Visas</h3>
+            <p>Short-term travel for holidays, sightseeing, and visiting friends or family. We handle applications for single-entry, multiple-entry, and long-stay tourist visas.</p>
+            <div class="price-box">
+                <div class="service-fee">$199 <span style="font-size:0.9rem; color:#7a9ab8; font-weight:400;">Gateway Visas service fee</span></div>
+                <div class="govt-fee">+ Government fee: typically $50 – $200</div>
+                <div class="total-note">Total estimated: $249 – $399 depending on destination</div>
+            </div>
+        </div>
+        <div class="service-card">
+            <div class="icon">💼</div>
+            <h3>Business Visas</h3>
+            <p>Corporate travel for meetings, conferences, trade shows, and short-term business activities. Includes invitation letter support where required.</p>
+            <div class="price-box">
+                <div class="service-fee">$249 <span style="font-size:0.9rem; color:#7a9ab8; font-weight:400;">Gateway Visas service fee</span></div>
+                <div class="govt-fee">+ Government fee: typically $100 – $400</div>
+                <div class="total-note">Total estimated: $349 – $649 depending on destination</div>
+            </div>
+        </div>
+        <div class="service-card">
+            <div class="icon">🎓</div>
+            <h3>Student Visas</h3>
+            <p>Study abroad permits for universities, colleges, language schools, and exchange programs. We assist with admission documentation and financial proof.</p>
+            <div class="price-box">
+                <div class="service-fee">$279 <span style="font-size:0.9rem; color:#7a9ab8; font-weight:400;">Gateway Visas service fee</span></div>
+                <div class="govt-fee">+ Government fee: typically $100 – $500</div>
+                <div class="total-note">Total estimated: $379 – $779 depending on destination</div>
+            </div>
+        </div>
+        <div class="service-card">
+            <div class="icon">🏠</div>
+            <h3>Work Visas</h3>
+            <p>Employment permits, skilled worker visas, and intra-company transfers. We coordinate with employers and handle labor market assessments.</p>
+            <div class="price-box">
+                <div class="service-fee">$349 <span style="font-size:0.9rem; color:#7a9ab8; font-weight:400;">Gateway Visas service fee</span></div>
+                <div class="govt-fee">+ Government fee: typically $200 – $1,000</div>
+                <div class="total-note">Total estimated: $549 – $1,349 depending on destination</div>
+            </div>
+        </div>
+        <div class="service-card">
+            <div class="icon">✈️</div>
+            <h3>Transit Visas</h3>
+            <p>Airport transit permits and short-stop visas for layovers. Quick turnaround for urgent travel connections.</p>
+            <div class="price-box">
+                <div class="service-fee">$149 <span style="font-size:0.9rem; color:#7a9ab8; font-weight:400;">Gateway Visas service fee</span></div>
+                <div class="govt-fee">+ Government fee: typically $20 – $100</div>
+                <div class="total-note">Total estimated: $169 – $249 depending on destination</div>
+            </div>
+        </div>
+        <div class="service-card">
+            <div class="icon">👨‍👩‍👧</div>
+            <h3>Family Visas</h3>
+            <p>Spousal visas, dependent permits, parent visas, and family reunification applications. We handle complex multi-applicant cases.</p>
+            <div class="price-box">
+                <div class="service-fee">$299 <span style="font-size:0.9rem; color:#7a9ab8; font-weight:400;">Gateway Visas service fee</span></div>
+                <div class="govt-fee">+ Government fee: typically $200 – $800</div>
+                <div class="total-note">Total estimated: $499 – $1,099 depending on destination</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="countries-section">
+        <div class="container">
+            <h2>Popular Destinations We Cover</h2>
+            <div class="countries-grid">
+                <div class="country-tag">🇺🇸 United States</div>
+                <div class="country-tag">🇨🇦 Canada</div>
+                <div class="country-tag">🇬🇧 United Kingdom</div>
+                <div class="country-tag">🇦🇺 Australia</div>
+                <div class="country-tag">🇩🇪 Germany</div>
+                <div class="country-tag">🇫🇷 France</div>
+                <div class="country-tag">🇨🇳 China</div>
+                <div class="country-tag">🇯🇵 Japan</div>
+                <div class="country-tag">🇧🇷 Brazil</div>
+                <div class="country-tag">🇿🇦 South Africa</div>
+                <div class="country-tag">🇮🇳 India</div>
+                <div class="country-tag">🇦🇪 UAE</div>
+                <div class="country-tag">🇲🇽 Mexico</div>
+                <div class="country-tag">🇳🇬 Nigeria</div>
+                <div class="country-tag">🇰🇪 Kenya</div>
+                <div class="country-tag">+ 175 more</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Ready to Apply?</h2>
+                <p>Get started in minutes. Our team will review your application and guide you every step of the way.</p>
+                <a href="contact.html" class="btn-primary">Start Your Application</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Gateway Visas. All rights reserved.</p>
+            <div class="contact">
+                Contact: <a href="mailto:gatewayvisas@atomicmail.io">gatewayvisas@atomicmail.io</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

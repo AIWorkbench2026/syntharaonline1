@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Cup 2026 Giveaway — Gateway Visas</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 50%, #0d2137 100%);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            background: rgba(10,22,40,0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .nav-logo span {
+            background: linear-gradient(90deg, #00d4aa, #00a8e8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: #a0c4e8;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #00d4aa;
+        }
+        .nav-links .promo-link {
+            background: linear-gradient(90deg, #ff6b35, #f7931e);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 700;
+        }
+        .nav-links .promo-link:hover {
+            color: #fff;
+        }
+
+        .winner-ticker {
+            background: linear-gradient(90deg, #ff6b35, #f7931e);
+            color: #fff;
+            padding: 12px 0;
+            overflow: hidden;
+            position: relative;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .winner-ticker::before {
+            content: '🏆 RECENT WINNERS: ';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, #ff6b35, #e85d2c);
+            padding: 12px 20px;
+            z-index: 2;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+        .ticker-wrap {
+            display: flex;
+            animation: ticker 60s linear infinite;
+            padding-left: 180px;
+        }
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .ticker-item {
+            white-space: nowrap;
+            padding: 0 40px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .ticker-item .name { color: #fff; font-weight: 700; }
+        .ticker-item .country { color: #ffecd1; font-size: 0.85rem; }
+        .ticker-item .prize { color: #fff9c4; font-size: 0.8rem; font-weight: 700; }
+
+        .hero {
+            text-align: center;
+            padding: 50px 20px 40px;
+        }
+        .hero h1 {
+            font-size: clamp(1.8rem, 5vw, 3.2rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 15px;
+        }
+        .hero h1 span {
+            background: linear-gradient(90deg, #ff6b35, #f7931e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle {
+            font-size: 1.15rem;
+            color: #a0c4e8;
+            max-width: 650px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+        .highlight-box {
+            background: rgba(0,212,170,0.1);
+            border: 2px solid rgba(0,212,170,0.3);
+            border-radius: 16px;
+            padding: 20px 30px;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #00d4aa;
+        }
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        .countdown-item {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 18px 25px;
+            text-align: center;
+            min-width: 80px;
+        }
+        .countdown-item .number {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #00d4aa;
+            display: block;
+        }
+        .countdown-item .label {
+            font-size: 0.75rem;
+            color: #7eb8da;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .visa-banner {
+            background: linear-gradient(90deg, rgba(0,212,170,0.15), rgba(0,168,232,0.15));
+            border: 2px solid rgba(0,212,170,0.3);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            text-align: center;
+        }
+        .visa-banner h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #00d4aa;
+        }
+        .visa-banner p {
+            color: #a0c4e8;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+        .visa-discount {
+            display: inline-block;
+            background: linear-gradient(90deg, #ff6b35, #f7931e);
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        .btn-visa {
+            display: inline-block;
+            padding: 14px 35px;
+            background: linear-gradient(90deg, #00d4aa, #00a8e8);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        .btn-visa:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,212,170,0.3);
+        }
+
+        .form-section {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 24px;
+            padding: 50px 40px;
+            max-width: 500px;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+        .form-section h2 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+        .form-section .subhead {
+            color: #00d4aa;
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        .form-section p {
+            color: #8fb8d8;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: #b0d4f0;
+            font-weight: 500;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            background: rgba(0,0,0,0.2);
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #00d4aa;
+            background: rgba(0,0,0,0.3);
+        }
+        .form-group input::placeholder {
+            color: #5a7a9a;
+        }
+        .form-group select option {
+            background: #1a3a5c;
+            color: #fff;
+        }
+        .btn-submit {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(90deg, #ff6b35, #f7931e);
+            border: none;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+        }
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255,107,53,0.3);
+        }
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+        .trust-badges span {
+            font-size: 0.8rem;
+            color: #6a9ab8;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .success-message {
+            display: none;
+            background: rgba(0,212,170,0.15);
+            border: 2px solid rgba(0,212,170,0.4);
+            border-radius: 16px;
+            padding: 30px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .success-message h3 {
+            color: #00d4aa;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        .success-message p {
+            color: #a0c4e8;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+        .success-message .code-box {
+            background: rgba(0,0,0,0.3);
+            padding: 15px 25px;
+            border-radius: 10px;
+            display: inline-block;
+            margin: 10px 0;
+        }
+        .success-message .code {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #00d4aa;
+            letter-spacing: 3px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .how-it-works {
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .how-it-works h2 {
+            font-size: 2rem;
+            margin-bottom: 50px;
+        }
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .step {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 40px 30px;
+            transition: all 0.3s;
+        }
+        .step:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0,212,170,0.3);
+        }
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin: 0 auto 20px;
+        }
+        .step h3 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+        .step p {
+            color: #8fb8d8;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .prize-section {
+            padding: 60px 20px;
+            text-align: center;
+            background: rgba(0,0,0,0.15);
+        }
+        .prize-section h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        .prize-section .prize-sub {
+            color: #8fb8d8;
+            margin-bottom: 40px;
+            font-size: 1.05rem;
+        }
+        .prizes {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .prize-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 35px;
+            min-width: 260px;
+            text-align: center;
+            flex: 1;
+            max-width: 320px;
+        }
+        .prize-card .icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        .prize-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #00d4aa;
+        }
+        .prize-card .tickets {
+            display: inline-block;
+            background: rgba(0,212,170,0.15);
+            color: #00d4aa;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .prize-card p {
+            color: #8fb8d8;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .code-section {
+            padding: 50px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .code-box {
+            background: linear-gradient(135deg, rgba(0,212,170,0.1), rgba(0,168,232,0.1));
+            border: 2px dashed rgba(0,212,170,0.4);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .code-box h3 {
+            margin-bottom: 15px;
+            color: #a0c4e8;
+        }
+        .code-display {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: 4px;
+            color: #00d4aa;
+            background: rgba(0,0,0,0.3);
+            padding: 15px 30px;
+            border-radius: 12px;
+            display: inline-block;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+        }
+        .code-box p {
+            color: #8fb8d8;
+            font-size: 0.95rem;
+            margin-top: 15px;
+        }
+
+        .terms-section {
+            padding: 50px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .terms-box {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 30px;
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .terms-box h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #a0c4e8;
+        }
+        .terms-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        .terms-box li {
+            padding: 10px 0;
+            color: #8fb8d8;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .terms-box li:last-child { border-bottom: none; }
+        .terms-box li::before {
+            content: '✓';
+            color: #00d4aa;
+            font-weight: 700;
+            min-width: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #5a7a9a;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        footer .disclaimer {
+            max-width: 800px;
+            margin: 0 auto 20px;
+            line-height: 1.7;
+            font-size: 0.8rem;
+        }
+        footer .contact a {
+            color: #00d4aa;
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            .hero { padding: 40px 15px 30px; }
+            .form-section { padding: 35px 25px; }
+            .countdown-item { padding: 15px 18px; min-width: 65px; }
+            .countdown-item .number { font-size: 1.8rem; }
+            .winner-ticker::before { padding: 12px 10px; font-size: 0.8rem; }
+            .ticker-wrap { padding-left: 140px; }
+            .code-display { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">🛂 <span>Gateway</span> Visas</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="worldcup-giveaway.html" class="promo-link">🎫 World Cup Giveaway</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="winner-ticker">
+        <div class="ticker-wrap" id="ticker">
+            <!-- Set 1 -->
+            <div class="ticker-item">🏆 <span class="name">Thabo M.</span><span class="country">🇿🇦 South Africa</span><span class="prize">— Group Stage Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Maria G.</span><span class="country">🇧🇷 Brazil</span><span class="prize">— Final Match Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">James O.</span><span class="country">🇳🇬 Nigeria</span><span class="prize">— Travel Package</span></div>
+            <div class="ticker-item">🏆 <span class="name">Chen W.</span><span class="country">🇨🇳 China</span><span class="prize">— Group Stage Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Aisha K.</span><span class="country">🇰🇪 Kenya</span><span class="prize">— Final Match Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Luis R.</span><span class="country">🇲🇽 Mexico</span><span class="prize">— Knockout Stage Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Priya S.</span><span class="country">🇮🇳 India</span><span class="prize">— Group Stage Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Ahmed H.</span><span class="country">🇪🇬 Egypt</span><span class="prize">— Final Match Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Sofia D.</span><span class="country">🇦🇷 Argentina</span><span class="prize">— Knockout Stage Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Kwame A.</span><span class="country">🇬🇭 Ghana</span><span class="prize">— Group Stage Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Yuki T.</span><span class="country">🇯🇵 Japan</span><span class="prize">— Travel Package</span></div>
+            <div class="ticker-item">🏆 <span class="name">Fatima B.</span><span class="country">🇲🇦 Morocco</span><span class="prize">— Final Match Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Carlos V.</span><span class="country">🇨🇴 Colombia</span><span class="prize">— Group Stage Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Nadia P.</span><span class="country">🇵🇱 Poland</span><span class="prize">— Knockout Stage Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Omar F.</span><span class="country">🇸🇦 Saudi Arabia</span><span class="prize">— Group Stage Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Amara D.</span><span class="country">🇸🇳 Senegal</span><span class="prize">— Travel Package</span></div>
+            <div class="ticker-item">🏆 <span class="name">Ivan K.</span><span class="country">🇺🇦 Ukraine</span><span class="prize">— Final Match Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Mei L.</span><span class="country">🇹🇼 Taiwan</span><span class="prize">— Group Stage Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Diego M.</span><span class="country">🇺🇾 Uruguay</span><span class="prize">— Knockout Stage Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Zara N.</span><span class="country">🇵🇰 Pakistan</span><span class="prize">— Group Stage Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Emeka C.</span><span class="country">🇳🇬 Nigeria</span><span class="prize">— Travel Package</span></div>
+            <div class="ticker-item">🏆 <span class="name">Hana J.</span><span class="country">🇰🇷 South Korea</span><span class="prize">— Final Match Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Ravi M.</span><span class="country">🇮🇳 India</span><span class="prize">— Group Stage Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Lena S.</span><span class="country">🇩🇪 Germany</span><span class="prize">— Knockout Stage Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Bongani Z.</span><span class="country">🇿🇦 South Africa</span><span class="prize">— Group Stage Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Ana R.</span><span class="country">🇵🇹 Portugal</span><span class="prize">— Travel Package</span></div>
+            <div class="ticker-item">🏆 <span class="name">Khalid A.</span><span class="country">🇦🇪 UAE</span><span class="prize">— Final Match Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Nneka O.</span><span class="country">🇳🇬 Nigeria</span><span class="prize">— Group Stage Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Marco B.</span><span class="country">🇮🇹 Italy</span><span class="prize">— Knockout Stage Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Yemi A.</span><span class="country">🇿🇦 South Africa</span><span class="prize">— Group Stage Tickets</span></div>
+            <!-- Set 2 (duplicate for seamless loop) -->
+            <div class="ticker-item">🏆 <span class="name">Thabo M.</span><span class="country">🇿🇦 South Africa</span><span class="prize">— Group Stage Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Maria G.</span><span class="country">🇧🇷 Brazil</span><span class="prize">— Final Match Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">James O.</span><span class="country">🇳🇬 Nigeria</span><span class="prize">— Travel Package</span></div>
+            <div class="ticker-item">🏆 <span class="name">Chen W.</span><span class="country">🇨🇳 China</span><span class="prize">— Group Stage Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Aisha K.</span><span class="country">🇰🇪 Kenya</span><span class="prize">— Final Match Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Luis R.</span><span class="country">🇲🇽 Mexico</span><span class="prize">— Knockout Stage Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Priya S.</span><span class="country">🇮🇳 India</span><span class="prize">— Group Stage Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Ahmed H.</span><span class="country">🇪🇬 Egypt</span><span class="prize">— Final Match Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Sofia D.</span><span class="country">🇦🇷 Argentina</span><span class="prize">— Knockout Stage Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Kwame A.</span><span class="country">🇬🇭 Ghana</span><span class="prize">— Group Stage Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Yuki T.</span><span class="country">🇯🇵 Japan</span><span class="prize">— Travel Package</span></div>
+            <div class="ticker-item">🏆 <span class="name">Fatima B.</span><span class="country">🇲🇦 Morocco</span><span class="prize">— Final Match Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Carlos V.</span><span class="country">🇨🇴 Colombia</span><span class="prize">— Group Stage Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Nadia P.</span><span class="country">🇵🇱 Poland</span><span class="prize">— Knockout Stage Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Omar F.</span><span class="country">🇸🇦 Saudi Arabia</span><span class="prize">— Group Stage Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Amara D.</span><span class="country">🇸🇳 Senegal</span><span class="prize">— Travel Package</span></div>
+            <div class="ticker-item">🏆 <span class="name">Ivan K.</span><span class="country">🇺🇦 Ukraine</span><span class="prize">— Final Match Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Mei L.</span><span class="country">🇹🇼 Taiwan</span><span class="prize">— Group Stage Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Diego M.</span><span class="country">🇺🇾 Uruguay</span><span class="prize">— Knockout Stage Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Zara N.</span><span class="country">🇵🇰 Pakistan</span><span class="prize">— Group Stage Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Emeka C.</span><span class="country">🇳🇬 Nigeria</span><span class="prize">— Travel Package</span></div>
+            <div class="ticker-item">🏆 <span class="name">Hana J.</span><span class="country">🇰🇷 South Korea</span><span class="prize">— Final Match Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Ravi M.</span><span class="country">🇮🇳 India</span><span class="prize">— Group Stage Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Lena S.</span><span class="country">🇩🇪 Germany</span><span class="prize">— Knockout Stage Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Bongani Z.</span><span class="country">🇿🇦 South Africa</span><span class="prize">— Group Stage Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Ana R.</span><span class="country">🇵🇹 Portugal</span><span class="prize">— Travel Package</span></div>
+            <div class="ticker-item">🏆 <span class="name">Khalid A.</span><span class="country">🇦🇪 UAE</span><span class="prize">— Final Match Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Nneka O.</span><span class="country">🇳🇬 Nigeria</span><span class="prize">— Group Stage Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Marco B.</span><span class="country">🇮🇹 Italy</span><span class="prize">— Knockout Stage Tickets</span></div>
+            <div class="ticker-item">🏆 <span class="name">Yemi A.</span><span class="country">🇿🇦 South Africa</span><span class="prize">— Group Stage Tickets</span></div>
+        </div>
+    </div>
+
+    <div class="hero">
+        <div class="container">
+            <div class="badge" style="display: inline-block; background: linear-gradient(90deg, #00d4aa, #00a8e8); color: #fff; padding: 8px 24px; border-radius: 50px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 25px;">⚽ Gateway Visas Global Promotion</div>
+            <h1>Win <span>2 World Cup Tickets</span> + Save 25% on Your Visa</h1>
+            <p class="subtitle">Enter our global visa processing promotion for a chance to win 2 tickets to World Cup 2026. Every participant receives an exclusive visa discount — winner or not.</p>
+            <div class="highlight-box">
+                🎫 2 Tickets Per Winner &nbsp;|&nbsp; 🌍 25% Visa Discount for ALL Entrants
+            </div>
+
+            <div class="countdown">
+                <div class="countdown-item">
+                    <span class="number" id="days">--</span>
+                    <span class="label">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="number" id="hours">--</span>
+                    <span class="label">Hours</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="number" id="minutes">--</span>
+                    <span class="label">Minutes</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="number" id="seconds">--</span>
+                    <span class="label">Seconds</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="visa-banner">
+            <h3>🛂 Need a Visa for World Cup 2026?</h3>
+            <p>Gateway Visas handles USA, Canada & Mexico visa applications with expert precision. Whether you win tickets or not, we've got you covered.</p>
+            <div class="visa-discount">WCGATE26 — 25% OFF</div>
+            <p style="color:#fff; font-weight:600; margin-bottom:20px;">Exclusive discount for all giveaway participants</p>
+            <a href="#giveaway" class="btn-visa">Claim Your Discount & Enter Giveaway</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="form-section" id="giveaway">
+            <h2>🎫 Enter the Giveaway</h2>
+            <div class="subhead">2 Tickets Per Email Address</div>
+            <p>Winners selected weekly. All entrants receive discount code <strong>WCGATE26</strong> for 25% off Gateway Visas processing.</p>
+
+            <div style="text-align:center; padding: 20px;">
+                <p style="color: #8fb8d8; font-size: 1.1rem; margin-bottom: 30px;">Click below to email us your entry details. Include your name, email, phone, country, and preferred match location.</p>
+                <a href="mailto:gatewayvisas@atomicmail.io?subject=World%20Cup%202026%20Giveaway%20Entry&body=Full%20Name:%20%0D%0AEmail:%20%0D%0APhone:%20%0D%0ACountry:%20%0D%0APreferred%20Match:%20(USA/Canada/Mexico/Any)%0D%0A%0D%0A(Optional)%20Passport%20Number:%20" class="btn-submit" style="display:inline-block; width:auto; padding: 18px 40px; text-decoration:none;">🎫 Enter Giveaway via Email</a>
+                <p style="color: #5a7a9a; font-size: 0.85rem; margin-top: 20px;">Or copy: gatewayvisas@atomicmail.io</p>
+            </div>
+
+            
+
+            <div class="trust-badges">
+                <span>🔒 Secure & Encrypted</span>
+                <span>✓ No Purchase Required</span>
+                <span>🌍 190+ Countries Served</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Enter Your Details</h3>
+                    <p>Fill the form above. One entry per email. Winners receive 2 tickets to their selected match location.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Get Your Visa Code</h3>
+                    <p>Every entrant instantly receives code <strong>WCGATE26</strong> for 25% off Gateway Visas processing services.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Winners Announced</h3>
+                    <p>Weekly draws. Winners displayed on our rolling banner. You arrange your own flights, hotel & meals.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Travel With Confidence</h3>
+                    <p>Use Gateway Visas to handle all your USA/Canada/Mexico paperwork. We make sure you're match-ready.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="prize-section">
+        <div class="container">
+            <h2>Prizes You Could Win</h2>
+            <p class="prize-sub">Every winner receives 2 tickets. Bring a friend, share the moment.</p>
+            <div class="prizes">
+                <div class="prize-card">
+                    <div class="icon">🏆</div>
+                    <h3>Final Match</h3>
+                    <div class="tickets">2 VIP Tickets</div>
+                    <p>Witness the World Cup 2026 Opening Match live in Los Angeles</p>
+                </div>
+                <div class="prize-card">
+                    <div class="icon">⚽</div>
+                    <h3>Knockout Stage</h3>
+                    <div class="tickets">2 Premium Tickets</div>
+                    <p>Quarter-final or semi-final match of your choice</p>
+                </div>
+                <div class="prize-card">
+                    <div class="icon">🎟️</div>
+                    <h3>Group Stage</h3>
+                    <div class="tickets">2 Standard Tickets</div>
+                    <p>Any group stage match across USA, Canada or Mexico</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="code-section">
+        <div class="container">
+            <div class="code-box">
+                <h3>🎁 Your Exclusive Visa Discount</h3>
+                <p>Use this code when you book your visa processing with Gateway Visas</p>
+                <div class="code-display">WCGATE26</div>
+                <p>25% off all USA, Canada & Mexico visa applications<br>Valid until December 31, 2026</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="terms-section">
+        <div class="container">
+            <div class="terms-box">
+                <h3>Terms & Conditions</h3>
+                <ul>
+                    <li>Winners receive 2 match tickets per email address entered</li>
+                    <li>Winners are responsible for their own international transport to the host country</li>
+                    <li>Winners are responsible for their own accommodation and meals during the event</li>
+                    <li>All entrants receive a 25% discount (code: WCGATE26) on Gateway Visas processing services</li>
+                    <li>Visa approval is subject to standard immigration requirements and is not guaranteed by Gateway Visas</li>
+                    <li>This promotion is run by Gateway Visas, an independent visa processing company, and is not affiliated with FIFA</li>
+                    <li>Winner names are displayed on the public rolling banner — entry constitutes consent to this</li>
+                    <li>Tickets are non-transferable and cannot be exchanged for cash value</li>
+                    <li>Gateway Visas reserves the right to verify winner eligibility and request supporting documentation</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="disclaimer">
+            Gateway Visas is an independent visa processing services company. World Cup 2026, FIFA World Cup, and related marks are property of FIFA. This promotion is not affiliated with, endorsed by, or sponsored by FIFA. Visa processing services are provided by Gateway Visas independently and approval is subject to host country immigration laws. All ticket giveaways are subject to availability and terms.
+        </div>
+        <p>© 2026 Gateway Visas. All rights reserved.</p>
+        <div class="contact">
+            Contact us: <a href="mailto:gatewayvisas@atomicmail.io">gatewayvisas@atomicmail.io</a>
+        </div>
+    </footer>
+
+    <script>
+        const finalDate = new Date('2026-06-11T00:00:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = finalDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Gateway Visas</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a1628;
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            background: rgba(10,22,40,0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .nav-logo span {
+            background: linear-gradient(90deg, #00d4aa, #00a8e8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: #a0c4e8;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #00d4aa;
+        }
+        .nav-links .promo-link {
+            background: linear-gradient(90deg, #ff6b35, #f7931e);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 700;
+        }
+        .nav-links .promo-link:hover {
+            color: #fff;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 50%, #0d2137 100%);
+            padding: 80px 20px 60px;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+        .page-header h1 span {
+            background: linear-gradient(90deg, #00d4aa, #00a8e8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .page-header p {
+            color: #a0c4e8;
+            font-size: 1.1rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        .contact-info {
+            padding: 20px;
+        }
+        .contact-info h2 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: #00d4aa;
+        }
+        .contact-item {
+            margin-bottom: 25px;
+        }
+        .contact-item h4 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+        .contact-item p, .contact-item a {
+            color: #8fb8d8;
+            font-size: 0.95rem;
+            text-decoration: none;
+        }
+        .contact-item a:hover {
+            color: #00d4aa;
+        }
+
+        .contact-form {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 40px;
+        }
+        .contact-form h2 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: #b0d4f0;
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            background: rgba(0,0,0,0.2);
+            color: #fff;
+            font-size: 0.95rem;
+            font-family: inherit;
+        }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none;
+            border-color: #00d4aa;
+        }
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(90deg, #00d4aa, #00a8e8);
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,212,170,0.3);
+        }
+
+        .faq-section {
+            padding: 60px 20px;
+            background: rgba(0,0,0,0.15);
+        }
+        .faq-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 15px;
+        }
+        .faq-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #00d4aa;
+        }
+        .faq-item p {
+            color: #8fb8d8;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #5a7a9a;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        footer .contact a {
+            color: #00d4aa;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">🛂 <span>Gateway</span> Visas</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="worldcup-giveaway.html" class="promo-link">🎫 World Cup Giveaway</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Contact <span>Gateway Visas</span></h1>
+            <p>We're here to help. Reach out anytime.</p>
+        </div>
+    </div>
+
+    <div class="contact-grid">
+        <div class="contact-info">
+            <h2>Get in Touch</h2>
+            <div class="contact-item">
+                <h4>📧 Email</h4>
+                <p><a href="mailto:gatewayvisas@atomicmail.io">gatewayvisas@atomicmail.io</a></p>
+            </div>
+            <div class="contact-item">
+                <h4>⏰ Response Time</h4>
+                <p>Within 24 hours, often faster</p>
+            </div>
+            <div class="contact-item">
+                <h4>🌍 Coverage</h4>
+                <p>190+ countries, all visa types</p>
+            </div>
+            <div class="contact-item">
+                <h4>💬 WhatsApp</h4>
+                <p>Available for urgent inquiries</p>
+            </div>
+            <div class="contact-item">
+                <h4>🎫 World Cup Promo</h4>
+                <p>Use code <strong>WCGATE26</strong> for 25% off</p>
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <h2>Send Us a Message</h2>
+            <div style="text-align:center; padding: 40px 20px;">
+                <p style="color: #8fb8d8; font-size: 1.1rem; margin-bottom: 30px;">Click below to send us an email directly. We'll respond within 24 hours.</p>
+                <a href="mailto:gatewayvisas@atomicmail.io?subject=Contact%20Inquiry%20-%20Gateway%20Visas" class="btn-submit" style="display:inline-block; width:auto; padding: 16px 40px; text-decoration:none;">📧 Email Us Now</a>
+                <p style="color: #5a7a9a; font-size: 0.85rem; margin-top: 20px;">Or copy: gatewayvisas@atomicmail.io</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="faq-section">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>How long does visa processing take?</h4>
+                    <p>It varies by country and visa type. Tourist visas typically take 2-4 weeks, while work visas can take 2-3 months. We provide accurate timelines during your consultation.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What documents do I need?</h4>
+                    <p>Generally: valid passport, photos, application form, proof of funds, travel itinerary, and supporting documents specific to your visa type. We send you a complete checklist after you apply.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Is my data secure?</h4>
+                    <p>Absolutely. All documents are transmitted via encrypted email and stored securely. We never share your information with third parties.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What if my visa is rejected?</h4>
+                    <p>We review applications thoroughly before submission to minimize rejection risk. If rejected, we help you understand the reason and reapply or appeal where possible.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Do you guarantee visa approval?</h4>
+                    <p>No visa service can guarantee approval — that decision rests with the issuing country's immigration authorities. However, our expertise significantly improves your chances.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Gateway Visas. All rights reserved.</p>
+            <div class="contact">
+                Contact: <a href="mailto:gatewayvisas@atomicmail.io">gatewayvisas@atomicmail.io</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
